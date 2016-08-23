@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery九宫格抽奖转盘插件lottery</title>
+<style type="text/css">
+	#lottery{width:426px;height:426px;margin:20px auto 0;background-size:cover; background-color:#000;}
+	#lottery table td{width:142px;height:142px;text-align:center;vertical-align:middle;font-size:24px;color:#333;font-index:-999}
+	#lottery table td a{width:142px;height:142px;line-height:150px;display:block;text-decoration:none;}
+
+	#lottery table td.td_1{background-color:#8670ff;}
+	#lottery table td.td_2{background-color:#df88cf;}
+	#lottery table td.td_3{background-color:#8ed9f9;}
+	#lottery table td.td_4{background-color:#fef9b9;}
+	#lottery table td.td_5{background-color:#ff745b;}
+	#lottery table td.td_6{background-color:#21d9cf;}
+	#lottery table td.td_7{background-color:#fdfacf;}
+	#lottery table td.td_8{background-color:#fa598f;}
+	#lottery table td.td_9{background-color:#ea0000;}
+    #lottery table td.active{background-color:yellow;}
+	#demo{width:300px; margin:50px auto 10px; overflow:hidden;}
+	#demo a{float:left; width:90px; height:30px; line-height:30px; text-align:center; margin-left:10px; background-color:#000; color:#fff; text-decoration:none; font-weight:bold;}
+	#demo a.cur{background-color:#933;}
+</style>
+</head>
+<body>
+
+<div id="lottery" style="height:1500px">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr class="lottery-group">
+			<td class="lottery-unit td_1 active" ><img src="images/1.png" /></td>
+			<td class="lottery-unit td_2"><img src="images/2.png" /></td>
+			<td class="lottery-unit td_3"><img src="images/4.png" /></td>
+		</tr>
+		<tr class="lottery-group">
+			<td class="lottery-unit td_4"><img src="images/7.png" /></td>
+			<td class="td_5"><a href="#"><img src="images/start.jpg" /></a></td>
+			<td class="lottery-unit td_6"><img src="images/5.png" /></td>
+		</tr>
+        <tr class="lottery-group">
+			<td class="lottery-unit td_7"><img src="images/3.png" /></td>
+			<td class="lottery-unit td_8"><img src="images/6.png" /></td>
+			<td class="lottery-unit td_9"><img src="images/8.png" /></td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/lottery.js"></script>
+<script type="text/javascript">
+	window.onload = function () {
+		lottery.lottery({
+			selector:     '#lottery',
+			width:        3,
+			height:       3,
+			index:        0,    // 初始位置
+			initSpeed:    500,  // 初始转动速度
+			upStep:       50,   // 加速滚动步长
+			upMax:        50,   // 速度上限
+			downStep:     30,   // 减速滚动步长
+			downMax:      500,  // 减速上限
+			waiting:      5000, // 匀速转动时长
+			target:       1, //中奖id
+			beforeRoll: function () { // 重写滚动前事件：beforeRoll
+                console.log("开始抽奖");
+
+            },
+            beforeDown: function () {//重写减速之前的操作
+                console.log("减速了");
+            },
+            callBack  : function () {//重写转盘停止自定义事件
+                console.log("抽奖结束");
+            },
+            _stop     : function () { // 重写转盘停止，没有抽奖机会后禁用按钮
+				console.log("没有抽奖机会");
+            },
+		});
+	}
+</script>
+</body>
+</html>
