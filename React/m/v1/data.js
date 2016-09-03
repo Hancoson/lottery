@@ -1,10 +1,10 @@
 /**
  *
  * @author Guoxing.Han(hancoson#163.com)
- * @time 2016-8-10.
+ * @time 2016-8-24.
  */
-var hdPcDrawv1 = [{
-    "id"         : "hdPcDrawv1",
+var hdMDrawv1 = [{
+    "id"         : "hdMDrawv1",
     "extend_attr": {
         "img"   : "http://hd.res.meizu.com/hd/image/2016/07/20/kw.png",
         "search": ["DRAW"]
@@ -18,7 +18,7 @@ var hdPcDrawv1 = [{
             },
             "id"            : {
                 "name"       : "抽奖活动id",
-                "disabled"   : "214",
+                "disabled"   : "222",
                 "description": "抽奖活动id"
             },
             "start_date": {
@@ -68,7 +68,7 @@ var hdPcDrawv1 = [{
             },
             "regulation":{
                 "name"       : "抽奖规则",
-                "textarea"   : "<p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p>",
+                "textarea"   : "<p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p><p>抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签抽奖规则，支持html标签</p>",
                 "description": "抽奖规则，支持html标签"
             }
         },
@@ -81,7 +81,7 @@ var hdPcDrawv1 = [{
                 },
                 "prizeImg" : {
                     "name"       : "奖品图片链接",
-                    "link"       : "http://open.file.meizu.com/group1/M00/00/1A/Cix_s1ePN7KAOHGyAAvhVMfnh40024_180x180.png",
+                    "link"       : "http://hd.res.meizu.com/hd/image/2016/08/31/meilan3.png",
                     "description": "奖品图片链接"
                 },
                 "prizeName": {
@@ -98,7 +98,7 @@ var hdPcDrawv1 = [{
                 },
                 "prizeImg" : {
                     "name"       : "奖品图片链接",
-                    "link"       : "http://open.file.meizu.com/group1/M00/00/1A/Cix_s1ePN7KAOHGyAAvhVMfnh40024_180x180.png",
+                    "link"       : "http://hd.res.meizu.com/hd/image/2016/08/31/meilan3.png",
                     "description": "奖品图片链接"
                 },
                 "prizeName": {
@@ -115,7 +115,7 @@ var hdPcDrawv1 = [{
                 },
                 "prizeImg" : {
                     "name"       : "奖品图片链接",
-                    "link"       : "http://open.file.meizu.com/group1/M00/00/0F/Cix_s1eFraKAItfnAALfKBZ-UWw742_180x180.png",
+                    "link"       : "http://hd.res.meizu.com/hd/image/2016/08/31/meilan3.png",
                     "description": "奖品图片链接"
                 },
                 "prizeName": {

@@ -1,72 +1,90 @@
 /**
-*
+* 
 * @author Guoxing.Han(hancoson#163.com)
-* @time 2016-8-10.
+* @time 2016-8-24.
 */
 @import "../../../../lib/style/variables";
-@import "../../../../lib/components/dialog/dialog";
+@import "../../../../lib/components/dialog/m-dialog";
+@import "../../../../lib/components/dialog/full-dialog";
+@import "../../../../lib/components/popmsg/popmsg";
 
-.hd-drawPc {
-    width: $pc-hd-width;
-    margin: 0 auto 60px;
+.mhd-draw {
+    width: 672*$px;
+    margin: 40px auto;
+    .m-share-btn {
+        display: block;
+        border-radius: 8*$px;
+        background: linear-gradient(to bottom, #cc4d62 0%, #e2232b 100%);
+        width: 230px;
+        height: 33px;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        line-height: 33px;
+        i {
+            display: inline-block;
+            width: 17px;
+            height: 14px;
+            margin-left: 5*$px;
+            background: url('http://hd.res.meizu.com/hd/custom/hd/images/shaer-icon.png');
+            background-size: 17px auto;
+        }
+    }
     .top-btns {
-        margin-bottom: 18px;
+        margin-top: 20*$px;
         text-align: right;
         button {
-            border: 2px solid #fff;
+            border-bottom: 2*$px solid #fff;
             color: #fff;
             background: transparent;
-            width: 110px;
-            height: 30px;
-            margin-left: 8px;
-            border-radius: 20px;
-            transition: color .3s ease;
-            transition: background .3s ease;
-            &:hover {
-                border: 2px solid #f8465b;
-                color: #fff;
-                background: #f8465b;
-            }
+            padding: 10*$px 5*$px;
+            margin-left: 50*$px;
         }
     }
     .draw-pcArea {
-        width: 100%;
-        height: 503px;
-        background: url('http://hd.res.meizu.com/hd/custom/hd/images/draw-bg.png') no-repeat;
+        width: 672*$px;
+        height: 660*$px;
+        margin-top: 40*$px;
+        background-color: #c62645;
+        background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/m-draw-bg.png');
+        background-repeat: no-repeat;
+        background-size: 672*$px auto;
+
         .draw-pcLeft {
-            width: 736px;
-            height: 503px;
+            width: 100%;
+            height: 455*$px;
             position: relative;
             .border-light {
                 position: absolute;
                 &.top {
                     top: 0;
                     left: 0;
-                    width: 736px;
-                    height: 40px;
+                    width: 672*$px;
+                    height: 35*$px;
                 }
                 &.left {
-                    top: 40px;
+                    top: 35*$px;
                     left: 0;
-                    width: 40px;
-                    height: 420px;
+                    width: 38*$px;
+                    height: 385*$px;
                 }
                 &.bottom {
                     bottom: 3px;
                     left: 0;
-                    width: 736px;
-                    height: 43px;
+                    width: 672*$px;
+                    height: 35*$px;
                 }
                 &.right {
-                    top: 40px;
+                    top: 35*$px;
                     right: 0;
-                    width: 40px;
-                    height: 420px;
+                    width: 38*$px;
+                    height: 385*$px;
                 }
                 i {
                     display: inline-block;
-                    width: 40px;
-                    height: 40px;
+                    width: 35*$px;
+                    height: 35*$px;
                     img {
                         width: 100%;
                     }
@@ -75,61 +93,60 @@
                     &.even {
                     }
                     &.across {
-                        margin-right: 134px;
+                        margin-right: 124.25*$px;
                         &.last {
                             margin-right: 0;
                         }
                     }
                     &.vertical {
-                        margin-top: 113.333px;
+                        margin-top: 105*$px;
                     }
                 }
             }
             .draw-box {
-                padding: 5px;
-                width: 645px;
-                height: 410px;
-                margin: 40px;
+                padding: 5*$px;
+                width: 602*$px;
+                height: 385*$px;
+                margin: 35*$px 38*$px;
                 ul {
                     li {
                         @extend .border-box;
-                        margin: 5px;
-                        width: 205px;
-                        height: 126px;
-                        padding: 10px;
+                        margin: 5*$px;
+                        width: 187*$px;
+                        height: 114.5*$px;
+                        padding: 10*$px;
                         float: left;
-                        background: url("http://hd.res.meizu.com/hd/custom/hd/images/draw-kw.png");
+                        background-image: url("http://hd.res.meizu.com/hd/custom/hd/images/draw-kw.png");
+                        background-size: 187*$px 114.5*$px;
                         color: #cc1f46;
-                        font-size: 16px;
+                        font-size: 18*$px;
                         text-align: center;
-                        border: 4px solid rgba(255, 255, 255, 0);
+                        border: 5*$px solid rgba(255, 255, 255, 0);
                         img {
                             width: 100%;
-                            max-width: 75px;
-                            max-height: 75px;
+                            max-width: 60*$px;
+                            max-height: 60*$px;
                         }
                         p {
-                            margin-top: 5px;
+                            margin-top: 5*$px;
                         }
                         &.active {
                             background: #fff;
-                            border: 4px solid #f59936;
+                            border: 5*$px solid #f59936;
                         }
                         &.btn {
                             cursor: pointer;
                             padding: 0;
                             border: 0;
-                            &:hover {
-                                opacity: 0.8;
-                            }
+                            background-size: 187*$px auto;
                             a {
                                 display: inline-block;
                                 width: 100%;
                                 height: 100%;
                             }
                             p {
-                                margin-top: 75px;
-                                font-size: 16px;
+                                margin-top: 70*$px;
+                                font-size: 16*$px;
                                 color: #fff;
                                 em {
                                     color: #f6e23d;
@@ -138,11 +155,11 @@
                                 }
                             }
                             .null {
-                                font-size: 24px;
-                                padding-top: 30px;
+                                font-size: 24*$px;
+                                padding-top: 30*$px;
                                 color: #fff;
                                 p {
-                                    margin-top: 16px;
+                                    margin-top: 15*$px;
                                     em {
                                         color: #e1af7c;
                                     }
@@ -160,60 +177,44 @@
             }
         }
         .draw-pcRight {
-            width: 235px;
-            height: 420px;
-            margin-top: 38px;
+            width: 100%;
+            height: 180*$px;
             position: relative;
             .share-btn {
-                display: block;
-                width: 100%;
-                height: 45px;
-                line-height: 42px;
-                background: url("http://hd.res.meizu.com/hd/custom/hd/images/share.png");
-                text-align: center;
-                font-size: 18px;
-                color: #fff;
-                &:hover {
-                    opacity: 0.9;
-                }
-                i {
-                    display: inline-block;
-                    width: 25px;
-                    height: 22px;
-                    margin-left: 3px;
-                    background: url('http://hd.res.meizu.com/hd/custom/hd/images/shaer-icon.png');
-                    background-position-y: 1px;
-                }
+                display: none;
             }
             .draw-list {
                 @extend .border-box;
-                width: 230px;
-                padding: 0 15px;
-                margin-top: 95px;
-                height: 245px;
+                width: 100%;
+                padding: 0 20*$px;
+                height: 120*$px;
+                margin-top: 65*$px;
                 overflow: hidden;
                 ul {
                     width: 100%;
                     li {
-                        font-size: 14px;
-                        color: #666;
-                        height: 40px;
-                        line-height: 40px;
-                        border-bottom: 1px solid #e2cdcd;
+                        width: 50%;
+                        float: left;
+                        font-size: 18*$px;
+                        color: #fff;
+                        height: 40*$px;
+                        line-height: 40*$px;
                         span {
                             @extend .ellipsis;
                             display: block;
                             &.n {
-                                width: 70px;
+                                width: 110*$px;
                                 float: left;
+                                margin-right: 15*$px;
                             }
                             &.p {
-                                width: 110px;
-                                float: right;
+                                width: 160*$px;
+                                float: left;
                             }
                         }
                         &.null {
-                            color: #999;
+                            width: 100%;
+                            color: #eaeaea;
                             text-align: center;
                             border-bottom: 0;
                         }
@@ -222,31 +223,31 @@
             }
         }
         .draw-add {
-            text-align: center;
-            color: #fff;
-            font-size: 16px;
-            margin-top: 10px;
+            display: none;
         }
     }
 }
-
+//#J_drawdialogView .hd-dialog .hd-dialog-con{
+//    height: auto;
+//}
 .hd-drawDialogS {
     width: 100%;
     .title {
         text-align: center;
-        font-size: 20px;
+        font-size: 28*$px;
         color: #fff;
-        height: 30px;
-        line-height: 20px;
+        height: 40*$px;
+        line-height: 40*$px;
         margin: 0 auto;
         display: table;
         i {
             display: block;
             float: left;
-            width: 30px;
-            height: 30px;
-            background: url('http://hd.res.meizu.com/hd/custom/hd/images/gou-icon.png');
-            margin: -4px 5px 0 0;
+            width: 40*$px;
+            height: 40*$px;
+            background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/gou-icon.png');
+            background-size: 40*$px auto;
+            margin: 0 10*$px 0 0;
         }
     }
     .error {
@@ -272,48 +273,43 @@
         text-align: center;
         .bg {
             @extend .border-box;
-            background: url('http://hd.res.meizu.com/hd/custom/hd/images/is-draw.png') no-repeat;
-            width: 249px;
-            height: 133px;
-            margin: 10px auto 0;
+            background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/is-draw.png');
+            background-size: 318*$px auto;
+            width: 318*$px;
+            height: 170*$px;
+            margin: 20*$px auto 0;
             text-align: center;
-            padding-top: 21px;
+            padding-top: 25*$px;
             &.no {
                 background: url('http://hd.res.meizu.com/hd/custom/hd/images/no-draw.png') no-repeat;
+                background-size: 320*$px 170*$px;
             }
             img {
-                width: 90px;
-                height: 90px;
+                width: 120*$px;
+                height: 120*$px;
             }
 
         }
         .links {
-            margin: 40px auto;
+            margin: 35*$px auto;
             text-align: center;
             a {
                 display: inline-block;
                 font-size: 14px;
-                width: 120px;
-                height: 28px;
+                width: 220*$px;
+                height: 70*$px;
                 text-align: center;
-                line-height: 26px;
+                line-height: 70*$px;
                 box-sizing: border-box;
-                margin: 0 3px;
-                border-radius: 3px;
-                transition: color .3s ease;
-                transition: background .3s ease;
+                border-radius: 5*$px;
                 &.btn {
                     background: #fff;
                     color: #f8465b;
                     border: #f8465b 1px solid;
-                    &:hover {
-                        background: #f8465b;
-                        color: #fff;
-                        border: #fff 1px solid;
-                    }
                 }
                 &.i {
-                    height:30px;
+                    height: 70*$px;
+                    margin-top:30*$px;
                     :after {
                         content: '';
                         display: inline-block;
@@ -328,13 +324,8 @@
             }
             .s {
                 p.text {
-                    display: inline-block;
                     color: #fff;
-                    border: #fff 1px solid;
-                    //height: 26px;
-                    line-height: 26px;
-                    padding: 0 15px;
-                    margin: 0 0 10px;
+                    font-size: 20*$px;
                 }
             }
         }
@@ -342,109 +333,82 @@
     .bottom {
         @extend .border-box;
         background: #fff;
-        padding: 20px;
+        padding: 24*$px;
         color: #666;
-        font-size: 14px;
+        font-size: 20*$px;
         line-height: 1.4;
     }
 }
 
 .hd-drawDialogBig {
-    width: 100%;
+    margin-top: 110*$px;
     .title {
-        text-align: center;
-        font-size: 20px;
-        color: #fff;
-        height: 60px;
-        line-height: 60px;
-        margin: -40px auto 0;
-        display: table;
-        i {
-            display: block;
-            float: left;
-            width: 36px;
-            height: 32px;
-            background: url('http://hd.res.meizu.com/hd/custom/hd/images/gift.png');
-            margin: 14px 5px 0 0;
-            &.d {
-                background: url('http://hd.res.meizu.com/hd/custom/hd/images/address.png');
-            }
-        }
-        span {
-            display: block;
-            float: left;
-        }
+        display: none;
     }
     .dialog-con {
         @extend .border-box;
-        background: #fff;
         width: 100%;
-        padding: 25px 28px;
+        padding: 24*$px;
         color: #666;
-        .myList{
-            @extend .scrollbar;
+
+        .myList {
             width: 100%;
-            height: 325px;
+            height: 100%;
             overflow: auto;
-            &.regulation{
+            &.regulation {
                 line-height: 1.4;
-                p{
-                    margin-top: 5px;
+                font-size: 26*$px;
+                p {
+                    margin-top: 10*$px;
+                    font-size: 26*$px;
                 }
             }
-            li{
+            li {
                 @extend .border-box;
-                float: left;
-                width: 310px;
-                height: 110px;
-                background: #f4f4f4;
-                padding: 20px;
-                margin-bottom: 15px;
-                &:nth-child(odd){
-                    margin-right: 20px;
-                }
-                &:nth-child(even){
-                    margin-right: 0;
-                }
-                .img{
+                width: 100%;
+                height: 160*$px;
+                background: #fff;
+                margin-bottom: 10*$px;
+                .img {
                     @extend .border-box;
                     display: block;
-                    float: left;
-                    width: 120px;
-                    height: 70px;
+                    float: right;
+                    width: 260*$px;
+                    height: 160*$px;
                     background-image: url("http://hd.res.meizu.com/hd/custom/hd/images/draw-kw.png");
-                    background-size: 120px 70px;
-                    padding: 5px;
-                    margin-right: 10px;
+                    background-size: 260*$px 160*$px;
+                    padding: 20*$px;
                     text-align: center;
-                    img{
+                    img {
                         width: 100%;
-                        max-width: 45px;
-                        max-height: 45px;
+                        max-width: 120*$px;
+                        max-height: 120*$px;
                     }
-                    p{
+                    p {
                         font-size: 12px;
                         color: #f2424f;
                     }
                 }
-                .dec{
+                .dec {
                     float: left;
                     line-height: 1.5;
-                    .h{
-                        font-size: 18px;
+                    padding: 20*$px;
+                    .h {
+                        font-size: 28*$px;
                         color: #333;
                     }
-                    .t{
-                        font-size: 14px;
+                    .t {
+                        font-size: 24*$px;
                         color: #666;
                     }
-                    .f{
+                    .f {
+                        font-size: 24*$px;
                         color: #999;
                     }
-                    a{
+                    a {
                         color: #f2424f;
-                        font-size: 14px;
-                        &:hover{
+                        font-size: 24*$px;
+                        &:hover {
                             text-decoration: underline;
                         }
                     }
@@ -454,53 +418,56 @@
                     text-align: center;
                     background: transparent;
                     color: #999;
+                    font-size: 20*$px;
+                    padding-top: 80*$px;
                 }
             }
         }
         &.address {
-            padding: 50px 20px 15px;
+            margin-top: 134*$px;
+            padding: 0;
+            background: #fff;
             li.item {
                 color: #666;
                 width: 100%;
-                min-height: 65px;
-                &.last-i {
-                    min-height: 120px;
+                min-height: 90*$px;
+                border-bottom: 1px solid #eee;
+                &.m-submit-btn {
+                    height: 110*$px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
                 }
                 .name {
-                    display: inline-block;
-                    width: 90px;
-                    height: 40px;
-                    line-height: 40px;
-                    text-align: right;
-                    margin-right: 10px;
-                    em {
-                        color: #f2424f;
-                        margin-right: 3px;
-                    }
+                    display: none;
                 }
                 input[name='name'], input[name='tel'], input[name='address'] {
-                    height: 36px;
-                    width: 200px;
-                    padding: 0 8px;
-                    border: 1px solid #e8e8e8;
-                    margin-bottom: 5px;
-                    font-size: 16px;
+                    @extend .border-box;
+                    min-height: 90*$px;
+                    width: 100%;
+                    padding: 0 24*$px;
+                    border: 0;
+                    font-size: 28*$px;
                 }
                 select {
                     @extend .ellipsis;
-                    height: 30px;
-                    width: 136px;
-                    margin-right: 5px;
-                    border: 1px solid #e8e8e8;
-                    cursor: pointer;
+                    @extend .border-box;
+                    min-height: 90*$px;
+                    width: 100%;
+                    border: 0;
                     -webkit-appearance: none;
                     appearance: none;
                     -webkit-box-sizing: border-box;
                     box-sizing: border-box;
-                    background: #FFF url(http://ourjs.github.io/static/2015/arrow.png) no-repeat center right;
-                    color: #333333;
-                    border-radius: 2px;
-                    padding: 0 15px 0 4px;
+                    background-color: #fff;
+                    background-image: url(http://hd.res.meizu.com/hd/custom/hd/images/right-jiantou.png);
+                    background-repeat: no-repeat;
+                    background-position: center right;
+                    background-size: 20*$px auto;
+                    color: #666;
+                    padding: 0 24*$px;
+                    font-size: 28*$px;
+                    border-bottom: 1px solid #eee;
                     option {
                         &.def {
                             color: #999;
@@ -515,20 +482,21 @@
                     }
                 }
                 .all-addr {
-                    border: 1px solid #e8e8e8;
-                    width: 542px;
-                    margin-left: 100px;
-                    padding: 0 8px;
-                    height: 43px;
-                    line-height: 43px;
+                    color: #666;
+                    width: 100%;
+                    min-height: 90*$px;
+                    //border-bottom: 1px solid #eee;
                     .addr {
                         float: left;
                         height: 43px;
                     }
                     input[name='address'] {
-                        width: 542px;
-                        padding: 0;
+                        @extend .border-box;
+                        min-height: 90*$px;
+                        width: 100%;
+                        padding: 0 24*$px;
                         border: 0;
+                        font-size: 28*$px;
                     }
                 }
                 p {
@@ -555,10 +523,13 @@
                 }
 
                 .submit {
-                    margin-left: 100px;
                     background: #c6c6c6;
                     border: 1px solid rgba(255, 255, 255, 0);
                     color: #fff;
+                    width: 100%;
+                    height: 110*$px;
+                    border-radius: 0;
+                    font-size: 32*$px;
                     &.active {
                         border: 1px solid rgba(255, 255, 255, 0);
                         background: #f2424f;
@@ -583,65 +554,48 @@
     }
     &.result {
         color: #666;
-        height: 445px;
         text-align: center;
         .re-title {
-            font-size: 20px;
-            height: 60px;
-            line-height: 60px;
+            font-size: 40*$px;
+            height: 60*$px;
+            line-height: 60*$px;
             margin: 0 auto;
-            padding-top: 40px;
+            padding-top: 120*$px;
             display: table;
-            &.err-t{
-                margin-top: 80px;
-            }
             i {
                 display: block;
                 float: left;
-                width: 32px;
-                height: 32px;
-                background: url('http://hd.res.meizu.com/hd/custom/hd/images/success.png');
-                margin: 14px 5px 0 0;
+                width: 60*$px;
+                height: 60*$px;
+                background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/success.png');
+                background-size: 60*$px auto;
+                margin: 0 10*$px 0 0;
                 &.err {
-                    background: url('http://hd.res.meizu.com/hd/custom/hd/images/error.png');
+                    background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/error.png');
                 }
             }
         }
-        .re-dec {
-            font-size: 14px;
-            margin: 5px auto;
-        }
         .re-bottom {
+            height: 90px;
+            margin: 40px auto 0;
             .text{
-                display: inline-block;
-                border: 1px solid #c6c6c6;
-                background:#f5f5f5;
                 color: #999;
-                margin-right: 10px;
-                padding: 8px 13px;;
+                text-align: center;
+                font-size: 28*$px;
+                margin-top: 20*$px;
             }
             .btn {
-                display: inline-block;
+                display: block;
                 border: 1px solid #f8465b;
                 color: #f8465b;
                 background: transparent;
-                width: 120px;
-                height: 30px;
-                line-height: 30px;
+                width: 290*$px;
+                height: 70*$px;
+                line-height: 70*$px;
                 border-radius: 2px;
-                transition: color .3s ease;
-                transition: background .3s ease;
-                margin: 30px auto 0;
+                margin: 50*$px auto 0;
+                font-size: 30*$px;
                 &.succ {
-                    color: #fff;
-                    background: #f8465b;
-                    &:hover {
-                        color: #f8465b;
-                        background: #fff;
-                    }
-                }
-                &:hover {
-                    border: 1px solid #f8465b;
                     color: #fff;
                     background: #f8465b;
                 }
@@ -649,19 +603,17 @@
             }
             .img{
                 @extend .border-box;
-                width: 249px;
-                height: 133px;
-                margin: 10px auto;
+                width: 310*$px;
+                height: 160*$px;
+                margin: 20*$px auto;
                 text-align: center;
-                padding: 10px;
+                padding: 20*$px;
                 background-image: url("http://hd.res.meizu.com/hd/custom/hd/images/is-draw.png");
+                background-size: 310*$px 160*$px;
 
                 img {
-                    width: 90px;
-                    height: 90px;
-                }
-                p{
-                    color: #f8465b;
+                    width: 120*$px;
+                    height: 120*$px;
                 }
             }
         }

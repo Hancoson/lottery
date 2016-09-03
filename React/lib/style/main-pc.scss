@@ -1,0 +1,29 @@
+/**
+ * pc端css
+ * @author guoxing.Han
+ * @time 2016/06/06
+ */
+@import "variables";
+@import "reset";
+
+body {
+    font-family: $pc-font-family;
+    font-size: $pc-font-size
+}
+
+.container {
+    width: $pc-width;
+    height: auto;
+    margin: 0 auto;
+}
+.main{
+    min-width: 1240px;
+}
+.d-loading{
+    display: block;
+    margin: 100px auto 0;
+    width: 20px;
+    height: 20px;
+}
+
+

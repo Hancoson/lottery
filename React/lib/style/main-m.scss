@@ -1,0 +1,27 @@
+/**
+ * 移动端css
+ * @author guoxing.Han
+ * @time 2016/06/06
+ */
+@import "variables";
+@import "reset";
+body {
+    font-size: $m-font-size
+}
+.main{
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.container {
+    width: 672*$px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.d-loading{
+    display: block;
+    margin: 100*$px auto 0;
+    width: 30*$px;
+    height: 30*$px;
+}

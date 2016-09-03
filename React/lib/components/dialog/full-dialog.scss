@@ -1,0 +1,55 @@
+ /**
+ * 全屏
+ * @author Guoxing.Han(hancoson#163.com)
+ * @time 2016-8-11.
+ */
+
+
+ //弹窗
+ .hd-fullDialog {
+     position: absolute;
+     z-index: 20;
+     left: 0;
+     top: 0;
+     width: 100%;
+     font-size: 18*$px;
+     .hd-dialog-con {
+         position: relative;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+     }
+     .full-head{
+         width: 100%;
+         height: 110*$px;
+         background: #fff;
+         position: absolute;
+         top:0;
+         z-index: 6;
+         text-align: center;
+         line-height: 110*$px;
+         color: #333;
+         font-size: 32*$px;
+         .close {
+             position: absolute;
+             top:0;
+             left: 0;
+             width: 80*$px;
+             height:110*$px;
+             background-image: url("http://hd.res.meizu.com/hd/custom/hd/images/back.png");
+             background-size: 80*$px auto;
+         }
+     }
+ }
+ //遮罩
+ .hd-cover {
+     background: #000;
+     opacity: 0.4;
+     filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 9;
+     width: 100%;
+     height: 100%;
+ }
