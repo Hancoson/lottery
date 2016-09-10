@@ -26,7 +26,7 @@ const WriteInfo = React.createClass({
             isOpen    : this.props.isOpen,
             main      : this.props.mainData,
             drawData  : this.props.drawData,
-            loginInfo : MeiCookie.cookie("MZ_ALAD_USER_INFO") || false,
+            loginInfo : MeiCookie.cookie(/MzmApp/.test(navigator.userAgent) ? "MZ_APP_USER_INFO" : "MZ_ALAD_USER_INFO") || false,
             p_value   : [],//省
             c_value   : [],//市
             a_value   : [],//区

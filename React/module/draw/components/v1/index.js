@@ -49,7 +49,7 @@ const DrawView = React.createClass({
                     {
                         IsPc.init() ?
                             <div>
-                                <a href={_href} target={IsPc.init() ? "_bland" : "_self"} className="share-btn"
+                                <a href={_href} target={IsPc.init() ? "_blank" : "_self"} className="share-btn"
                                    onClick={this._updateChance}>{_main.drawShareBtn.text}<i></i></a>
                                 <p className="draw-add">
                                     每日分享赠送{_main.addChance.text}次抽奖机会
@@ -86,7 +86,7 @@ const DrawView = React.createClass({
                     drawChance: data.data
                 });
                 if (IsPc.init()) {
-                    location.reload();
+                    location.reload(true);
                 }
             }
             else {

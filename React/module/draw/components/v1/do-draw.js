@@ -21,7 +21,7 @@ const DrawBox  = React.createClass({
         return {
             details   : this.props.details,
             main      : this.props.main,
-            loginInfo : MeiCookie.cookie("MZ_ALAD_USER_INFO") || false,
+            loginInfo : MeiCookie.cookie(/MzmApp/.test(navigator.userAgent) ? "MZ_APP_USER_INFO" : "MZ_ALAD_USER_INFO") || false,
             drawChance: this.props.drawChance,
             isStart   : true,
             isEnd     : false,
@@ -58,33 +58,41 @@ const DrawBox  = React.createClass({
                 <ul className="lottery-group">
                     <li className='lottery-unit active'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[0].prizeImg.link}/>
+                             data-src={_details[0].prizeImg.link} alt={_details[0].prizeName.text}/>
                         <p>{_details[0].prizeName.text}</p>
                     </li>
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[1].prizeImg.link}/>
+                             data-src={_details[1].prizeImg.link} alt={_details[1].prizeName.text}/>
                         <p>{_details[1].prizeName.text}</p>
                     </li>
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[2].prizeImg.link}/>
+                             data-src={_details[2].prizeImg.link} alt={_details[2].prizeName.text}/>
                         <p>{_details[2].prizeName.text}</p>
                     </li>
                 </ul>
                 <ul className="lottery-group">
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[7].prizeImg.link}/>
+                             data-src={_details[7].prizeImg.link} alt={_details[7].prizeName.text}/>
                         <p>{_details[7].prizeName.text}</p>
                     </li>
                     {
                         _isStart ? <li className='btn' id="J_lotteryBtn"
-                                       style={{backgroundImage: _loginInfo ? _chance < 1 ? 'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-w.png)' : 'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-b.png)' : 'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-b.png)'}}>
+                                       style={{
+                                           backgroundImage: _loginInfo ?
+                                               _getDate && !isNaN(_chance) ?
+                                                   _chance < 1 ?
+                                                       'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-w.png)' :
+                                                       'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-b.png)' :
+                                                   'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-w.png)' :
+                                               'url(http://hd.res.meizu.com/hd/custom/hd/images/draw-b.png)'
+                                       }}>
                             {
 
                                 _loginInfo ?
-                                    _getDate ?
+                                    _getDate && !isNaN(_chance) ?
                                         _chance < 1 ?
                                             <div className="null">
                                                 {CONFIG.PROMPT.nullDrawChance}
@@ -103,7 +111,9 @@ const DrawBox  = React.createClass({
                                             <p>
                                                 今日剩抽奖<em>{_chance}</em>次
                                             </p> :
-                                        <a className="null" style={{lineHeight:'1.2'}} dangerouslySetInnerHTML={this.createMarkup()} href="javascript:location.reload() "></a> :
+                                        <a className="null" style={{lineHeight: '1.2'}}
+                                           dangerouslySetInnerHTML={this.createMarkup()}
+                                           href="javascript:location.reload() "></a> :
                                     <a href={IsPc.init() ? CONFIG.URL.login : CONFIG.URL.mLogin}>
                                         <p>{CONFIG.PROMPT.drawNoLogin}</p>
                                     </a>
@@ -123,7 +133,7 @@ const DrawBox  = React.createClass({
 
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[3].prizeImg.link}/>
+                             data-src={_details[3].prizeImg.link} alt={_details[3].prizeName.text}/>
                         <p>{_details[3].prizeName.text}</p>
                     </li>
                 </ul>
@@ -131,17 +141,17 @@ const DrawBox  = React.createClass({
                 <ul className="lottery-group">
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[6].prizeImg.link}/>
+                             data-src={_details[6].prizeImg.link} alt={_details[6].prizeName.text}/>
                         <p>{_details[6].prizeName.text}</p>
                     </li>
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[5].prizeImg.link}/>
+                             data-src={_details[5].prizeImg.link} alt={_details[5].prizeName.text}/>
                         <p>{_details[5].prizeName.text}</p>
                     </li>
                     <li className='lottery-unit'>
                         <img className="be-lazy" src="http://hd.res.meizu.com/hd/image/2016/04/01/blank.png"
-                             data-src={_details[4].prizeImg.link}/>
+                             data-src={_details[4].prizeImg.link} alt={_details[4].prizeName.text}/>
                         <p>{_details[4].prizeName.text}</p>
                     </li>
                 </ul>
@@ -170,17 +180,15 @@ const DrawBox  = React.createClass({
             return;
         }
 
+    },
+    componentDidMount(){
         //获取当日剩余抽奖次数接口
         this._getChance('get')
-    },
-    //回调
-    handleChange(){
-
     },
     /**
      * 抽奖次数
      */
-    _getChance(e){
+    _getChance(e, href){
         if (!this.state.canDraw) return;
         let that        = this,
             _main       = this.state.main,
@@ -188,17 +196,23 @@ const DrawBox  = React.createClass({
             _url        = e == 'get' ? CONFIG.urlPc.getChance + '?appId=' + CONFIG.POSTDATA.appId + '&activityId=' + _activityId : CONFIG.urlPc.updateChance + '?appId=' + CONFIG.POSTDATA.appId + '&activityId=' + _activityId;
         AJAXCONGIG.AjaxJsonp(_url).done(function (data) {
             console.log(data);
-            if (data.success) {
-                that.setState({
-                    drawChance: data.data.left,
-                    canDraw   : data.data.tLeft > 0 ? true : false,
-                    getDate   : true
-                });
-                data.data.tLeft == 0 ? that.props.handleChange(false) : ''
-                that._bindDraw();
+            if (!IsPc.init() && e == 'null') {
+                //yi
+                window.location.href = href;
             }
             else {
-                console.log(data.errorMsg)
+                if (e == 'null') {
+                    that.state.canDraw ? location.reload(true) : '';
+                }
+                if (data.success) {
+                    that.setState({
+                        drawChance: data.data.left,
+                        canDraw   : data.data.tLeft > 0 ? true : false,
+                        getDate   : true
+                    });
+                    data.data.tLeft == 0 ? that.props.handleChange(false) : ''
+                    that._bindDraw();
+                }
             }
 
         }).fail(function () {
@@ -225,15 +239,11 @@ const DrawBox  = React.createClass({
             _href                                           = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' + _main.drawShareDec.text + '&pic=' + _main.drawShareImg.link + '&Uid=&language=zh_cn&url=' + _href;
             document.getElementById('J_lotteryBtn').onclick = function () {
 
-                if (!that.state.canDraw) {
+                if (that.state.canDraw) {
                     that._getChance("null");
                 }
                 if (IsPc.init()) {
                     window.open(_href);
-                    that.state.canDraw ? location.reload() : '';
-                }
-                else {
-                    window.location.href = _href;
                 }
             }
             return;
@@ -261,16 +271,17 @@ const DrawBox  = React.createClass({
             beforeDown: function () {//重写减速之前的操作
                 console.log("减速了");
                 this._down(PARAMETER._target);
-                //减抽奖次数
-                that.setState({
-                    drawChance: that.state.drawChance - 1
-                });
             },
             callBack  : function () {//重写转盘停止自定义事件
                 console.log("抽奖结束");
 
                 that.props.isStart(false);
                 that._onOpen(PARAMETER._draw);
+
+                //减抽奖次数
+                that.setState({
+                    drawChance: that.state.drawChance - 1
+                });
             },
             _stop     : function () { // 重写转盘停止，没有抽奖机会后禁用按钮
                 //没有抽奖机会
@@ -278,15 +289,11 @@ const DrawBox  = React.createClass({
                     var _href                                       = location.href;
                     _href                                           = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' + _main.drawShareDec.text + '&pic=' + _main.drawShareImg.link + '&Uid=&language=zh_cn&url=' + _href;
                     document.getElementById('J_lotteryBtn').onclick = function () {
-                        if (!that.state.canDraw) {
-                            that._getChance("null");
+                        if (that.state.canDraw) {
+                            that._getChance("null", _href);
                         }
                         if (IsPc.init()) {
                             window.open(_href);
-                            that.state.canDraw ? location.reload() : '';
-                        }
-                        else {
-                            window.location.href = _href;
                         }
 
                     }
@@ -348,8 +355,13 @@ const DrawBox  = React.createClass({
         const that = this;
         AJAXCONGIG.AjaxJsonp(url).done(function (data) {
             console.log(data);
-            PARAMETER._draw   = data;
-            PARAMETER._target = that._getId(details, data.data.id);
+            PARAMETER._draw = data;
+            if (data.data) {
+                PARAMETER._target = that._getId(details, data.data.id);
+            }
+            else {
+                PARAMETER._target = that._getId(details, that.props.main.defaultId.text);
+            }
 
         }).fail(function () {
             console.log('抽奖接口服务异常')

@@ -62,7 +62,7 @@ const MyDrawDialogView = React.createClass({
     _toWriteInfo(e){
         this._onClose();
         document.body.className = 'no-scroll';
-        !IsPc.init()?document.getElementsByTagName('BODY')[0].scrollTop=0:'';
+        !IsPc.init() ? document.getElementsByTagName('BODY')[0].scrollTop = 0 : '';
         ReactDOM.render(
             IsPc.init() ?
                 <HdDialog
@@ -99,7 +99,7 @@ const MyDraw   = React.createClass({
     getInitialState(){
         return {
             main     : this.props.mainData,
-            loginInfo: MeiCookie.cookie("MZ_ALAD_USER_INFO") || false
+            loginInfo: MeiCookie.cookie(/MzmApp/.test(navigator.userAgent) ? "MZ_APP_USER_INFO" : "MZ_ALAD_USER_INFO") || false
         }
     },
     render() {
@@ -112,7 +112,7 @@ const MyDraw   = React.createClass({
             window.location.href = IsPc.init() ? CONFIG.URL.login : CONFIG.URL.mLogin;
             return;
         }
-        !IsPc.init()?document.getElementsByTagName('BODY')[0].scrollTop=0:'';
+        !IsPc.init() ? document.getElementsByTagName('BODY')[0].scrollTop = 0 : '';
         //这边写请求
         var that  = this,
             _main = this.props.mainData,

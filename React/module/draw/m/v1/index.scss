@@ -10,7 +10,8 @@
 
 .mhd-draw {
     width: 672*$px;
-    margin: 40px auto;
+    margin: 0 auto;
+    padding: 25*$px 0 40*$px;
     .m-share-btn {
         display: block;
         border-radius: 8*$px;
@@ -44,10 +45,10 @@
     }
     .draw-pcArea {
         width: 672*$px;
-        height: 660*$px;
-        margin-top: 40*$px;
+        height: 620*$px;
+        margin-top: 30*$px;
         background-color: #c62645;
-        background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/m-draw-bg.png');
+        background-image: url('http://hd.res.meizu.com/hd/custom/hd/images/m-draw-bg.jpg');
         background-repeat: no-repeat;
         background-size: 672*$px auto;
 
@@ -166,8 +167,8 @@
                                 }
                             }
                             .no-start {
-                                font-size: 24px;
-                                padding-top: 47px;
+                                font-size: 26*$px;
+                                padding-top: 47*$px;
                                 color: #e5e5e5;
                             }
 
@@ -188,7 +189,7 @@
                 width: 100%;
                 padding: 0 20*$px;
                 height: 120*$px;
-                margin-top: 65*$px;
+                margin-top: 20*$px;
                 overflow: hidden;
                 ul {
                     width: 100%;
@@ -214,8 +215,9 @@
                         }
                         &.null {
                             width: 100%;
-                            color: #eaeaea;
+                            color: #ddd;
                             text-align: center;
+                            padding-top: 20*$px;
                             border-bottom: 0;
                         }
                     }

@@ -9,12 +9,12 @@ const AJAXCONGIG     = require('../../../../lib/outil/ajax');
 const DrawView       = require('../../components/v1/index');
 const MyDraw         = require('../../components/v1/myDraw')
 const DrawRegulation = require('../../components/v1/regulation')
-const Message    = require('../../../../lib/components/popmsg/popmsg');
+const Message        = require('../../../../lib/components/popmsg/popmsg');
 
 const PcDraw = React.createClass({
     getInitialState(){
         return {
-            MCanDraw  : true
+            MCanDraw: true
         }
     },
 
@@ -28,15 +28,19 @@ const PcDraw = React.createClass({
             _details = _data.details,
             _bg      = _main.bg.text,
             _href    = location.href;
+        let _ua_ = window.navigator.userAgent.toLowerCase();
         _href        = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' + _main.drawShareDec.text + '&pic=' + _main.drawShareImg.link + '&Uid=&language=zh_cn&url=' + _href;
         return (
             <div className="main clearfix" style={{background: _bg}}>
                 <div className="container">
                     <div className="mhd-draw">
-                        <a href={_href} className="m-share-btn" onClick={this._updateChance}>
-                            <p>每日分享赠送{_main.addChance.text}次抽奖机会<i></i></p>
+                        {
+                            _ua_.match(/MicroMessenger/i) == 'micromessenger'?'':
+                            <a href={_href} className="m-share-btn j-mShareBtn" onClick={this._updateChance}>
+                                <p>每日分享赠送{_main.addChance.text}次抽奖机会<i></i></p>
+                            </a>
+                        }
 
-                        </a>
                         <DrawView mHhandleChange={this.mHhandleChange} mainData={_main} detailsData={_details}/>
 
                         <div className="top-btns">
@@ -72,7 +76,7 @@ const PcDraw = React.createClass({
         }).fail(function () {
             console.log('获取抽奖次数接口服务异常')
         });
-    },
+    }
 });
 
 hdMDrawv1.map(function (val) {

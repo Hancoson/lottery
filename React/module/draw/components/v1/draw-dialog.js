@@ -18,7 +18,7 @@ const DrawDialog = React.createClass({
         var _draw     = this.props.drawData,
             _data     = _draw.data,
             _main     = this.props.mainData,
-            _shareDec = this.props.mainData.shareMyPrice.text.split('[name]')[0] + _draw.data.name + this.props.mainData.shareMyPrice.text.split('[name]')[1],
+            _shareDec = _data ? unescape(this.props.mainData.shareMyPrice.text.split('[name]')[0]) + _draw.data.name + unescape(this.props.mainData.shareMyPrice.text.split('[name]')[1]) : '谢谢惠顾！',
             _href     = location.href;
         _href         = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' + _main.drawShareDec.text + '&pic=' + _main.drawShareImg.link + '&Uid=&language=zh_cn&url=' + _href;
         console.log(_data.type);
@@ -40,7 +40,7 @@ const DrawDialog = React.createClass({
                                             <a href="javascript:void(0)" className="btn" onClick={this._toWriteInfo}>填写收货信息</a> :
                                             <div className="s">
                                                 <p className="text">“{_shareDec}”</p>
-                                                <a href={_href} target={IsPc.init() ? "_bland" : "_self"}
+                                                <a href={_href} target={IsPc.init() ? "_blank" : "_self"}
                                                    className="btn i"
                                                    onClick={this._getChance}>去炫耀</a>
                                             </div>
@@ -75,7 +75,7 @@ const DrawDialog = React.createClass({
                         </div>
                 }
                 {
-                    _data.type == 3 ?
+                    _data && _data.type == 3 ?
                         <div className="bottom" dangerouslySetInnerHTML={this.createMarkup()}></div> : ''
                 }
 
@@ -136,7 +136,7 @@ const DrawDialog = React.createClass({
             console.log(data);
             if (data.success) {
                 //分享成功后
-                IsPc.init() ? location.reload() : ''
+                IsPc.init() ? location.reload(true) : ''
 
             }
             else {

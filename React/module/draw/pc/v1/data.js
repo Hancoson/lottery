@@ -18,7 +18,7 @@ var hdPcDrawv1 = [{
             },
             "id"            : {
                 "name"       : "抽奖活动id",
-                "disabled"   : "214",
+                "disabled"   : "232",
                 "description": "抽奖活动id"
             },
             "start_date": {
@@ -38,8 +38,8 @@ var hdPcDrawv1 = [{
             },
             "drawShareDec": {
                 "name"       : "分享文案",
-                "text"       : "这个是分享抽奖的文案",
-                "description": "这个是分享抽奖的文案"
+                "text"       : "%23912魅友狂欢购%23 魅族年度狂欢节火热进行中，时尚热品冰点售卖，千万红包大派送，更有分期免息优惠可享，快来一起嗨皮~",
+                "description": "这个是分享抽奖的文案（#使用%23代替）"
             },
             "drawShareImg": {
                 "name"       : "分享图片",
@@ -59,7 +59,7 @@ var hdPcDrawv1 = [{
             "shareMyPrice" : {
                 "name"       : "分享我的奖品文案",
                 "text"       : "在魅粉节我抽中了[name],你也来玩吧！",
-                "description": "格式按照”xxx[name]xxx“的形式，其中[name]系统会自动替换为奖品名称"
+                "description": "格式按照”xxx[name]xxx“的形式，其中[name]系统会自动替换为奖品名称（#使用%23代替）"
             },
             "defaultId":{
                 "name"       : "默认奖品ID*",

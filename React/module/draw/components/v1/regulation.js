@@ -49,7 +49,7 @@ const DrawRegulation = React.createClass({
     getInitialState(){
         return {
             main     : this.props.mainData,
-            loginInfo: MeiCookie.cookie("MZ_ALAD_USER_INFO") || false
+            loginInfo: MeiCookie.cookie(/MzmApp/.test(navigator.userAgent) ? "MZ_APP_USER_INFO" : "MZ_ALAD_USER_INFO") || false
         }
     },
     render() {
@@ -59,7 +59,7 @@ const DrawRegulation = React.createClass({
     },
     _onOpen(){
         document.body.className = 'no-scroll';
-        !IsPc.init()?document.getElementsByTagName('BODY')[0].scrollTop=0:'';
+        !IsPc.init() ? document.getElementsByTagName('BODY')[0].scrollTop = 0 : '';
 
         ReactDOM.render(
             IsPc.init() ?
@@ -82,7 +82,8 @@ const DrawRegulation = React.createClass({
     },
     _onClose(){
         document.body.className = '';
-        ReactDOM.render(<HdDialog onClose={this._onClose} isOpen={false} width="700" marginTop="-180" marginLeft="-350"></HdDialog>,
+        ReactDOM.render(<HdDialog onClose={this._onClose} isOpen={false} width="700" marginTop="-180"
+                                  marginLeft="-350"></HdDialog>,
             document.getElementById('J_drawdialogView')
         )
     }

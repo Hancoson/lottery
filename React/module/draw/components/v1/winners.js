@@ -8,14 +8,14 @@ const IsPc       = require('../../../../lib/outil/isPc');
 const Winners    = React.createClass({
     getInitialState(){
         return {
-            data: [],
-            main: this.props.main,
-            hengShuPing:false
+            data       : [],
+            main       : this.props.main,
+            hengShuPing: false
         }
     },
-    componentWillReceiveProps(nextProps,nextState){
+    componentWillReceiveProps(nextProps, nextState){
         this.setState({
-            data: nextProps.data,
+            data       : nextProps.data,
             hengShuPing: nextState.hengShuPing
         });
     },
@@ -57,7 +57,7 @@ const Winners    = React.createClass({
          */
         setTimeout(function () {
             that._getData();
-        }, 800)
+        }, 500)
 
     },
     _getData: function () {

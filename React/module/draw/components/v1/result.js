@@ -10,10 +10,10 @@ const HdDialog   = require('../../../../lib/components/dialog/dialog');
 const Result   = React.createClass({
     getInitialState(){
         return {
-            isOpen   : this.props.isOpen,
-            main     : this.props.mainData,
-            drawData : this.props.drawData,
-            result   : this.props.result
+            isOpen  : this.props.isOpen,
+            main    : this.props.mainData,
+            drawData: this.props.drawData,
+            result  : this.props.result
         }
     },
     componentWillReceiveProps(nextProps){
@@ -21,16 +21,20 @@ const Result   = React.createClass({
     },
     render(){
         //type: 1,#奖品类型    0未中奖奖品、1实物奖品、2优惠券、3红包、4 M码
-        var _draw      = this.state.drawData,
-            _main      = this.state.main,
-            _result    = this.state.result,
-            _shareDec  = _main.shareMyPrice.text.split('[name]')[0] + _draw.name + _main.shareMyPrice.text.split('[name]')[1],
-            _href      = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' + _shareDec + '&pic=' + _draw.img + '&Uid=&language=zh_cn&url=' + location.href;
+        var _draw     = this.state.drawData,
+            _main     = this.state.main,
+            _result   = this.state.result,
+            _shareDec = unescape(_main.shareMyPrice.text.split('[name]')[0]) + _draw.name + unescape(_main.shareMyPrice.text.split('[name]')[1]),
+            _href     = 'http://service.weibo.com/share/share.php?appkey=584049942&title=' +
+                _main.shareMyPrice.text.split('[name]')[0] +
+                _draw.name +
+                _main.shareMyPrice.text.split('[name]')[1] +
+                '&pic=' + _draw.img + '&Uid=&language=zh_cn&url=' + location.href;
         console.log(_draw);
 
         return (
             <div className="hd-drawDialogBig result">
-                <div className={className('re-title',{'err-t': !_result.success})}>
+                <div className={className('re-title', {'err-t': !_result.success})}>
                     <i className={className({'err': !_result.success})}></i>
                     {
                         !_result.success ? CONFIG.PROMPT.pullInfoErr : CONFIG.PROMPT.pullInfoSucc
@@ -45,14 +49,15 @@ const Result   = React.createClass({
                             <div className="img">
                                 <img src={_draw.img}/>
                                 {
-                                    IsPc.init()?<p>{_draw.name}</p>:''
+                                    IsPc.init() ? <p>{_draw.name}</p> : ''
                                 }
 
                             </div>
                             <div className="text">
                                 “{_shareDec}”
                             </div>
-                            <a className="btn succ" href={_href} target={IsPc.init()?"_bland":"_self"} onClick={this._getChance}>一键分享微博</a>
+                            <a className="btn succ" href={_href} target={IsPc.init() ? "_blank" : "_self"}
+                               onClick={this._getChance}>一键分享微博</a>
                         </div>
                 }
             </div>
@@ -82,8 +87,8 @@ const Result   = React.createClass({
             console.log(data);
             if (data.success) {
                 //分享成功后
-                if(IsPc.init()){
-                    location.reload();
+                if (IsPc.init()) {
+                    location.reload(true);
                 }
             }
             else {
