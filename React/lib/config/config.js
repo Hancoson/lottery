@@ -5,34 +5,16 @@
  */
 
 var CONFIG = {
-    /*urlPc: {
+    urlPc: {
      couponCquire: '../../../../lib/config/json/coupon.json', //获取优惠券
      getSkuOrder : '../../../../lib/config/json/skuOrder.json',//获取sku 下单数量接口
      getDrawList : '../../../../lib/config/json/drawList.json',//最新中奖用户信息列表（活动页轮播滚动）
      getDraw     : '../../../../lib/config/json/draw.json',//抽奖
-     getArea     : 'http://area.meizu.com/area/child/query/',//四级地址
      pullInfo    : '../../../../lib/config/json/pullAddress.json',//提交收货信息
      getChance   : '../../../../lib/config/json/getLeft.json',//获取当日剩余抽奖次数接口
      updateChance: '../../../../lib/config/json/getChance.json',//更新当天抽奖次数
      getMyDraw   : '../../../../lib/config/json/my-draw.json',//根据用户获取用户中奖信息
-     },*/
-    urlPc: {
-        couponCquire: 'http://promotion.meizu.com/coupon/acquire', //获取优惠券
-        getSkuOrder : 'http://ordercenter.meizu.com/activity/getSkuOrder', //获取sku 下单数量接口
-        getDrawList : 'http://pyramid.meizu.com/drawInfo/getList', //最新中奖用户信息列表（活动页轮播滚动）
-        getDraw     : 'http://pyramid.meizu.com/draw', //抽奖
-        getArea     : 'http://area.meizu.com/area/child/query/', //四级地址
-        pullInfo    : 'http://hd.meizu.com/save_draw_info.php', //提交收货信息
-        getChance   : 'http://pyramid.meizu.com/draw/getLeft', //获取当日剩余抽奖次数接口
-        updateChance: 'http://pyramid.meizu.com/draw/eLeft', //更新当天抽奖次数
-        getMyDraw   : 'http://pyramid.meizu.com/draw/getByUser', //根据用户获取用户中奖信息
-        Remind      : 'http://hd.meizu.com/remind.php' //设置提醒
-    },
-
-    urlM: {
-        pullInfo: 'http://m.hd.meizu.com/save_draw_info.php', //提交收货信息
-        Remind  : 'http://m.hd.meizu.com/remind.php' //设置提醒
-    },
+     },
 
     //提示文案
     PROMPT  : {
